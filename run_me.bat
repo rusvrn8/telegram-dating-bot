@@ -15,4 +15,4 @@ echo Для документации: откройте README.md или TESTING.
 echo ========================================
 pause
 
- .\new-env\Scripts\python.exe my_bot_new.py
+.\new-env\Scripts\python.exe my_bot_new.py

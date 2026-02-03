@@ -4,20 +4,20 @@
 
 ### Для Windows (рекомендуется)
 
-1. **Установите зависимости** (в PowerShell):
-   ```
-    cd C:\Users\ruslan\PycharmProjects\tg_bot
-    .\new-env\Scripts\pip.exe install -r req.txt
-    .\new-env\Scripts\pip.exe install python-dotenv
-   ```
+ 1. **Установите зависимости** (в PowerShell):
+    ```
+     cd C:\Users\ruslan\PycharmProjects\tg_bot
+     .\new-env\Scripts\pip.exe install -r req.txt
+     .\new-env\Scripts\pip.exe install python-dotenv
+    ```
 
 2. **Настройте токен**:
    - Скопируйте `.env.example` в `.env`
    - Вставьте ваш BOT_TOKEN в `.env`
 
 3. **Запустите бота**:
-    - Двойной клик на `run_me.bat`
-    - **ИЛИ** в PowerShell: `.\new-env\Scripts\python.exe my_bot_new.py`
+     - Двойной клик на `run_me.bat`
+     - **ИЛИ** в PowerShell: `.\new-env\Scripts\python.exe my_bot_new.py`
 
 ### Для PyCharm
 
@@ -75,7 +75,6 @@ tg_bot/
 
 ### Bot не запускается?
 ```
-Ошибка: ModuleNotFoundError: No module named 'telegram'
 Решение: .\new-env\Scripts\pip.exe install python-telegram-bot==20.8
 ```
 
