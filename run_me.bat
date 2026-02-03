@@ -16,3 +16,4 @@ echo ========================================
 pause
 
 .\new-env\Scripts\python.exe my_bot_new.py
+

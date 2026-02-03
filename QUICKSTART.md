@@ -11,13 +11,15 @@
      .\new-env\Scripts\pip.exe install python-dotenv
     ```
 
+
 2. **Настройте токен**:
    - Скопируйте `.env.example` в `.env`
    - Вставьте ваш BOT_TOKEN в `.env`
 
-3. **Запустите бота**:
+ 3. **Запустите бота**:
      - Двойной клик на `run_me.bat`
      - **ИЛИ** в PowerShell: `.\new-env\Scripts\python.exe my_bot_new.py`
+
 
 ### Для PyCharm
 
@@ -75,6 +77,10 @@ tg_bot/
 
 ### Bot не запускается?
 ```
+<<<<<<< HEAD
+=======
+Ошибка: ModuleNotFoundError: No module named 'telegram'
+>>>>>>> 84f482a (feat: обновление проекта для использования new-env и улучшение тестов)
 Решение: .\new-env\Scripts\pip.exe install python-telegram-bot==20.8
 ```
 
