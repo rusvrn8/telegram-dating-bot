@@ -59,11 +59,18 @@ cp .env.example .env
 ## Установка зависимостей
 
 ```bash
+# Активировать виртуальное окружение
+# Windows:
+new-env\Scripts\activate
+# Linux/Mac:
+source new-env/bin/activate
+
 pip install -r req.txt
 ```
 
 ## Запуск бота
 
 ```bash
+# Убедитесь, что виртуальное окружение активировано
 python my_bot_new.py
 ```

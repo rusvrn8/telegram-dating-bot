@@ -5,7 +5,7 @@ echo ========================================
 echo.
 
 echo [1] Проверка Python...
-.\venv\Scripts\python.exe --version
+.\new-env\Scripts\python.exe --version
 if %errorlevel% neq 0 (
     echo Ошибка: Python не найден!
     pause
@@ -14,7 +14,7 @@ if %errorlevel% neq 0 (
 echo.
 
 echo [2] Запуск тестов...
-.\venv\Scripts\python.exe test_basic.py
+.\new-env\Scripts\python.exe test_basic.py
 if %errorlevel% neq 0 (
     echo Ошибка при запуске тестов!
     pause

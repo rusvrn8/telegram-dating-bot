@@ -6,9 +6,9 @@
 
 1. **Установите зависимости** (в PowerShell):
    ```
-   cd C:\Users\ruslan\PycharmProjects\tg_bot
-   .\venv\Scripts\pip.exe install -r req.txt
-   .\venv\Scripts\pip.exe install python-dotenv
+    cd C:\Users\ruslan\PycharmProjects\tg_bot
+    .\new-env\Scripts\pip.exe install -r req.txt
+    .\new-env\Scripts\pip.exe install python-dotenv
    ```
 
 2. **Настройте токен**:
@@ -16,8 +16,8 @@
    - Вставьте ваш BOT_TOKEN в `.env`
 
 3. **Запустите бота**:
-   - Двойной клик на `run_me.bat`
-   - **ИЛИ** в PowerShell: `.\venv\Scripts\python.exe my_bot_new.py`
+    - Двойной клик на `run_me.bat`
+    - **ИЛИ** в PowerShell: `.\new-env\Scripts\python.exe my_bot_new.py`
 
 ### Для PyCharm
 
@@ -31,7 +31,7 @@
 
 Двойной клик на `run_test.bat` или в PowerShell:
 ```
-.\venv\Scripts\python.exe test_basic.py
+.\new-env\Scripts\python.exe test_basic.py
 ```
 
 ### Сценарии тестирования
@@ -76,7 +76,7 @@ tg_bot/
 ### Bot не запускается?
 ```
 Ошибка: ModuleNotFoundError: No module named 'telegram'
-Решение: .\venv\Scripts\pip.exe install python-telegram-bot==20.8
+Решение: .\new-env\Scripts\pip.exe install python-telegram-bot==20.8
 ```
 
 ### Ошибка токена?

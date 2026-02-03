@@ -8,8 +8,8 @@
 
 ```powershell
 cd C:\Users\ruslan\PycharmProjects\tg_bot
-.\venv\Scripts\pip.exe install -r req.txt
-.\venv\Scripts\pip.exe install python-dotenv
+.\new-env\Scripts\pip.exe install -r req.txt
+.\new-env\Scripts\pip.exe install python-dotenv
 ```
 
 ### 2. Создание .env файла
@@ -50,7 +50,7 @@ SUPPORT_CHAT_ID=6700302188
 В PowerShell:
 
 ```powershell
-.\venv\Scripts\python.exe test_basic.py
+.\new-env\Scripts\python.exe test_basic.py
 ```
 
 ## Запуск бота
@@ -60,14 +60,14 @@ SUPPORT_CHAT_ID=6700302188
 Создайте `start_bot.bat`:
 ```batch
 @echo off
-.\venv\Scripts\python.exe my_bot_new.py
+.\new-env\Scripts\python.exe my_bot_new.py
 pause
 ```
 
 ### Запуск через PowerShell
 
 ```powershell
-.\venv\Scripts\python.exe my_bot_new.py
+.\new-env\Scripts\python.exe my_bot_new.py
 ```
 
 ### Запуск через PyCharm
@@ -229,7 +229,7 @@ python -m json.tool likes_test.json
 **Проблема:** Ошибка импорта telegram
 **Решение:** Установите python-telegram-bot
 ```powershell
-.\venv\Scripts\pip.exe install python-telegram-bot==20.8
+.\new-env\Scripts\pip.exe install python-telegram-bot==20.8
 ```
 
 ### Ошибка токен

@@ -63,11 +63,17 @@ tg_bot/
 ## Запуск бота
 
 ```bash
+# Активировать виртуальное окружение
+# Windows:
+new-env\Scripts\activate
+# Linux/Mac:
+source new-env/bin/activate
+
 # Установить зависимости
 pip install -r req.txt
 pip install python-dotenv
 
-# Запустить рефакторингованный бота
+# Запустить рефакторингованного бота
 python my_bot_new.py
 ```
 

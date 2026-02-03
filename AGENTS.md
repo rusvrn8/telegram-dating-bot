@@ -4,11 +4,20 @@
 
 This is a Python Telegram bot project with no formal test framework or CI pipeline configured.
 
+### Virtual Environment Activation
+```bash
+# Windows:
+new-env\Scripts\activate
+# Linux/Mac:
+source new-env/bin/activate
+```
+
 ### Running the Bot
 ```bash
 python my_bot.py           # Main dating bot (uses users_test.json)
 python ruletka_bot.py      # Random chat bot
 python test_bot.py         # Test bot for development
+python my_bot_new.py       # Refactored dating bot (recommended)
 ```
 
 ### Install Dependencies
