@@ -37,6 +37,7 @@ from handlers import (
     delete_filter,
     support
 )
+from utils import handle_errors, handle_callback_errors
 
 logging.basicConfig(format=config.LOG_FORMAT, level=config.LOG_LEVEL)
 
@@ -55,6 +56,7 @@ job_monitor = None
 job_like = None
 
 
+@handle_errors()
 async def start(update: Update, context) -> None:
     logging.info('Запуск старт..')
     user_id = update.message.from_user.id
@@ -66,17 +68,20 @@ async def start(update: Update, context) -> None:
             [InlineKeyboardButton("Знакомиться", callback_data='browse')]
         ])
         await update.message.reply_text("Привет! Готов к новым знакомствам? ", reply_markup=reply_markup)
-        await start_monitor(update, context)
+        start_monitor(update, context)
 
 
+@handle_callback_errors
 async def prev_upload_photo(update: Update, context) -> None:
     await update.callback_query.message.reply_text("Жду твоё фото...")
 
 
+@handle_errors()
 async def before_upload_photo(update: Update, context) -> None:
     await update.message.reply_text("Жду твоё фото...")
 
 
+@handle_callback_errors
 async def no_upload_photo(update: Update, context) -> None:
     reply_markup = InlineKeyboardMarkup([
         [InlineKeyboardButton("Знакомиться", callback_data='browse'),
@@ -84,7 +89,7 @@ async def no_upload_photo(update: Update, context) -> None:
     ])
     await update.callback_query.message.reply_text(
         "Если захочешь загрузить фото позже, то выбери в меню 'Загрузить фото'.",
-        reply_markup=Message.ReplyKeyboardRemove()
+        reply_markup=None
     )
     await update.callback_query.message.reply_text(
         "Теперь можешь начать знакомиться!\n\n"
@@ -93,6 +98,7 @@ async def no_upload_photo(update: Update, context) -> None:
     )
 
 
+@handle_callback_errors
 async def exit_bot(update: Update, context) -> None:
     logging.info('Выход')
     context.user_data['state'] = 'exit'
@@ -130,15 +136,12 @@ def start_monitor_like(update: Update, context) -> None:
     )
 
 
+@handle_errors()
 async def exit_handler(update: Update, context) -> None:
     logging.info('Выход')
-    context.user_data['state'] = 'exit'
-    await update.message.reply_text(
-        "Спасибо за использование бота!\n\n"
-        "Если захочешь продолжить знакомства, просто выбери в меню 'Начать знакомство' 😉"
-    )
 
 
+@handle_errors()
 async def input_data(update: Update, context) -> None:
     logging.info('Сохранение данных...')
     user_id = update.message.from_user.id
@@ -165,26 +168,32 @@ async def input_data(update: Update, context) -> None:
         await send_support_message(update, context, user_name, config.SUPPORT_CHAT_ID)
 
 
+@handle_callback_errors
 async def register_callback(update: Update, context) -> None:
     await register(update, context)
 
 
+@handle_callback_errors
 async def browse_callback(update: Update, context) -> None:
     await search(update, context, database, matching_service, regions)
 
 
+@handle_callback_errors
 async def photo_callback(update: Update, context) -> None:
     await prev_upload_photo(update, context)
 
 
+@handle_callback_errors
 async def no_photo_callback(update: Update, context) -> None:
     await no_upload_photo(update, context)
 
 
+@handle_callback_errors
 async def matching_callback(update: Update, context) -> None:
-    await handle_matching_choice(update, context, database, like_service)
+    await handle_matching_choice(update, context, database, like_service, regions)
 
 
+@handle_callback_errors
 async def exit_callback(update: Update, context) -> None:
     await exit_bot(update, context)
 
